@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseListItem 1`] = `
+<ExpenseListItem
+  expense={
+    Object {
+      "amount": 2000,
+      "createdAt": 345600000,
+      "description": "Dinner",
+      "id": "3",
+      "note": "",
+    }
+  }
+/>
+`;
