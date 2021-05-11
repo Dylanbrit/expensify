@@ -34,3 +34,46 @@
 // We type in git add, which comes with arguments for the files we want to add
 // If we want to add all of the untracked files, we can just type in git add .
 // This will add everything in the current directory and subdirectories
+// The next step is to run git commit
+// To use git commit we need to add a message to describe what changed in the commit, like this git commit -m "initial commit"
+// Once we run this, we get a bunch of output showing us what files were added to the git repository for the first time, as opposed to files git was tracking that happened to have changed
+// The working tree refers to all the files that are a part of our project
+// If we make changes to a file and we run git status, it will show us what has been modified since the last save under changes not staged for commit
+// Now we have the choice to add it to the staging area and make a new commit
+// We can make a new commit that just contains those changes we made since the last save
+// To do that we use git add with teh file name we want to add
+// Then we run git commit -m "message"
+// Now that we made these changes, we have to commits in this repository- the initial commit and the commit that tracks the changes over time
+// git log is similar to git status but is read only, and will log the commits that make up our repository
+
+
+// GitHub
+//
+// Click New Repository- add repo name and create
+// SSH- Secure Shell- a way to securely communicate with the Github servers from our machine
+// To make it secure we need to set up SSH keys
+// If we don't have SSH keys on our machine or we aren't sure, go to terminal and run git bash
+// use the ls -a ~/.ssh command to list out all the files in a folder and the -a to show hidden files and the folder we are looking fo rin the user directory
+// To generate an SSH key use the ssh-keygen -t rsa -b 4096 -C "dbrit007@fiu.edu" command to create a key type and size, as well as add our email
+// Stick with the default file suggested to save the key in
+// Hit enter a few times if you don't care about a passphrase, and you're done
+// The second code is the one we give out, the first one we keep private like a password
+// The next command is to let Github know which key to use
+// eval "$(ssh-agent -s)"  - this checks if ssh-agent is running, and if it isnt it starts things up
+// To push to Github, use the command git remote add origin https://github.com/Dylanbrit/Expensify-App.git
+// To push the code up use the command git push -u origin main
+// Github used to name the main branch master, but that has changed to main
+
+
+// Getting Webpack ready for production
+//
+// Our current webpack build is huge, so we want to make it more convenient and efficient for production
+// We can use webpack -p to stage it for production- this will let all our programs know to use the most bare bones code possible
+// We go to package.json and create two webpack scripts- one for development and one for production
+// The one for production will be set to webpack -p --env production
+// -p allows us to minify our JS and sets the production environment variable for our third party libraries
+// --env production lets us customize how webpack.config generates that object
+// By switching to a function that returns the object, we get acccess to the environment variable in our arguments and use it in the object configuration
+// We switch our syntax in webpack.config to make module.exports a function that returns our object with all its code
+// The function gets called with some stuff like the environment to determine if it is in development or production mode
+// We also set up our devtool to run a shittier version of source-map if being used for production
