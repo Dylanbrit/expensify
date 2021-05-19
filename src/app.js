@@ -23,5 +23,4 @@ const jsx = (
 const app = document.querySelector('#app')
 ReactDOM.render(jsx, app)
 
-
 // To get tests to pass, comment out the REMOVE_EXPENSE case in reducers->expenses, and startDateMatch/endDateMatch in selectors->expenses
