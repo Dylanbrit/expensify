@@ -28,3 +28,5 @@ export default connect(mapStateToProps)(ExpensesSummary)
 // Once we import react and connect, we set up the stateless functional component
 // When we use connect(), we connect our component with the redux store
 // What is returned inside of mapStateToProps is an object that contains info from the redux store that we can use through the props in our component
+// We want our component to keep the filters in mind, so we need to import getVisibleExpenses and pass the state expenses and filters in
+// We can store that result on a variable and then use that variable to create our different keys that we will pass as props to the component

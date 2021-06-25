@@ -1,17 +1,23 @@
 import React from 'react'
 import ExpenseForm from './ExpenseForm'
 import { connect } from 'react-redux'
-import { addExpense } from '../actions/expenses'
+import { startAddExpense, addExpense } from '../actions/expenses'
 
 const AddExpensePage = (props) => (
     <div>
         <h1>Add Expense</h1>
         <ExpenseForm onSubmit={(expense) => {
-            props.dispatch(addExpense(expense))
+            props.dispatch(startAddExpense(expense))
             props.history.push('/')
         }} />
     </div>
 )
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         addExpense: (expense) => dispatch(addExpense(expense))
+//     }
+// }
 
 // We provide a single prop, a function on submit called onSubmit
 // This gets called when a form gets submitted with valid data, and we get that data back in the form of the expense object
@@ -25,3 +31,6 @@ const AddExpensePage = (props) => (
 // The components we render inside or React-router get access to a bunch of special props, among them is the history method
 // Using props.history.push, we can redirect the user after they submit, and we want to send them to the home page
 export default connect()(AddExpensePage)
+// export default connect(undefined, mapDispatchToProps)(AddExpensePage)
+
+// We want to dispatch startAddExpense, since this is the engine that starts everything up
